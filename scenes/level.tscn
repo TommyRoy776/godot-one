@@ -31,7 +31,7 @@ size = Vector2(80, 720)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kfd4j"]
 size = Vector2(1300, 98)
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" groups=["ui"]]
 script = ExtResource("1_rlj2t")
 
 [node name="BG" type="Sprite2D" parent="."]

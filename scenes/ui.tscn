@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0g57pc0huqnq"]
+[gd_scene load_steps=3 format=3 uid="uid://c0g57pc0huqnq"]
 
 [ext_resource type="FontFile" uid="uid://ixpag1fe26rv" path="res://assets/kenney_space-shooter-redux/Bonus/kenvector_future.ttf" id="1_bjm7m"]
 [ext_resource type="Script" path="res://scenes/ui.gd" id="1_xprr7"]
-[ext_resource type="Texture2D" uid="uid://c4qee3awpdrgy" path="res://assets/kenney_space-shooter-redux/PNG/UI/playerLife1_red.png" id="2_j03pf"]
 
 [node name="UI" type="CanvasLayer" groups=["ui"]]
 script = ExtResource("1_xprr7")
@@ -22,7 +21,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.33193, 0.746122, 0.51446, 1)
 theme_override_fonts/font = ExtResource("1_bjm7m")
 theme_override_font_sizes/font_size = 50
-text = "1234"
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 anchors_preset = 2
@@ -40,27 +38,7 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer2/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_j03pf")
-stretch_mode = 2
+[node name="ScoreTimer" type="Timer" parent="."]
+autostart = true
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer2/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_j03pf")
-stretch_mode = 2
-
-[node name="TextureRect3" type="TextureRect" parent="MarginContainer2/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_j03pf")
-stretch_mode = 2
-
-[node name="TextureRect4" type="TextureRect" parent="MarginContainer2/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_j03pf")
-stretch_mode = 2
-
-[node name="TextureRect5" type="TextureRect" parent="MarginContainer2/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_j03pf")
-stretch_mode = 2
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

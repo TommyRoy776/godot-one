@@ -36,3 +36,6 @@ func get_rand_texture() -> Texture2D:
 	var random_texture_index = texture_rng.randi_range(0,len(textures)-1)
 	return textures[random_texture_index]
 	
+func _on_area_entered(area: Area2D) -> void:
+	area.queue_free()
+	queue_free()

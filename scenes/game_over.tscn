@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0cj0jsph0gkt"]
+[gd_scene load_steps=4 format=3 uid="uid://c0cj0jsph0gkt"]
 
+[ext_resource type="Script" path="res://scenes/game_over.gd" id="1_7taay"]
 [ext_resource type="FontFile" uid="uid://ixpag1fe26rv" path="res://assets/kenney_space-shooter-redux/Bonus/kenvector_future.ttf" id="1_o241u"]
 [ext_resource type="FontFile" uid="uid://cgryhhby4xs0r" path="res://assets/kenney_space-shooter-redux/Bonus/kenvector_future_thin.ttf" id="2_brr2p"]
 
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7taay")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 1
