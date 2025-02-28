@@ -3,6 +3,7 @@ extends Control
 var level_scene: PackedScene = load("res://scenes/level.tscn")
 
 func _ready() -> void:
+	$GameOverSound.play()
 	$CenterContainer/VBoxContainer/Label2.text = $CenterContainer/VBoxContainer/Label2.text + str(Global.score)
 
 func _input(event: InputEvent) -> void:

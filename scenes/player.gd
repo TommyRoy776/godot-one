@@ -16,8 +16,12 @@ func _process(_delta: float) -> void:
 	move_and_slide()
 	if Input.is_action_pressed("shoot") and can_shoot:
 		laser.emit($LaserStartPos.global_position)
+		$LaserSound.play()
 		can_shoot = false
 		$LaserTimer.start()
 
 func _on_laser_timer_timeout() -> void:
 	can_shoot = true
+	
+func play_collision_sound():
+	$DamageSound.play()

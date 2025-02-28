@@ -5,6 +5,7 @@ var rotation_speed: int
 var direction_x: float
 
 signal collision
+var can_collide := true
 
 func _ready() -> void:
 	var rng := RandomNumberGenerator.new()
@@ -22,8 +23,9 @@ func _process(delta: float) -> void:
 	rotation_degrees += rotation_speed*delta
 	
 func _on_body_entered(body: Node2D) -> void:
-	collision.emit()
-	print('body entered: ',body)
+	if can_collide:
+		collision.emit()
+	#print('body entered: ',body)
 	
 func get_rand_texture() -> Texture2D:
 	var textures:Array[Texture2D] = [
@@ -38,4 +40,9 @@ func get_rand_texture() -> Texture2D:
 	
 func _on_area_entered(area: Area2D) -> void:
 	area.queue_free()
+	$CollisionShape2D.disabled
+	$MeteorImage.hide()
+	can_collide = false
+	$ExplosionSound.play()
+	await $ExplosionSound.finished
 	queue_free()

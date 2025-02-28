@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://hcs4x4pkbuun"]
+[gd_scene load_steps=5 format=3 uid="uid://hcs4x4pkbuun"]
 
 [ext_resource type="Texture2D" uid="uid://hm5q35va8gk7" path="res://assets/spaceship.png" id="1_sblm0"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_tqiyt"]
+[ext_resource type="AudioStream" uid="uid://cr4okmt41b6od" path="res://assets/kenney_space-shooter-redux/Bonus/sfx_laser1.ogg" id="3_hc0y4"]
+[ext_resource type="AudioStream" uid="uid://dg3c747whnotr" path="res://assets/kenney_space-shooter-redux/Bonus/sfx_shieldDown.ogg" id="4_r4yqx"]
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 6
@@ -20,5 +22,11 @@ gizmo_extents = 6.3
 
 [node name="LaserTimer" type="Timer" parent="."]
 wait_time = 0.3
+
+[node name="LaserSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_hc0y4")
+
+[node name="DamageSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_r4yqx")
 
 [connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]

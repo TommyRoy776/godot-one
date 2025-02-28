@@ -33,6 +33,7 @@ func _on_player_laser(pos) -> void:
 	
 func _on_meteor_collision():
 	health -= 1
+	$Player.play_collision_sound()
 	get_tree().call_group('ui','set_health', health)
 	if health <= 0:
 		call_deferred("_change_scene_to_game_over") 
@@ -51,3 +52,4 @@ func set_random_stars(size: Vector2) -> void:
 		
 func _change_scene_to_game_over():
 	get_tree().change_scene_to_file("res://scenes/game_over.tscn") 
+	

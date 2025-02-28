@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dl56xnarteyay"]
+[gd_scene load_steps=5 format=3 uid="uid://dl56xnarteyay"]
 
 [ext_resource type="Script" path="res://scenes/meteor.gd" id="1_1xoej"]
 [ext_resource type="Texture2D" uid="uid://b6n86g8lllakj" path="res://assets/meteor/rotationY1.png" id="1_lwbnt"]
+[ext_resource type="AudioStream" uid="uid://cjb1nh8l463d8" path="res://assets/kenney_space-shooter-redux/kenney_sci-fi-sounds/Audio/explosionCrunch_000.ogg" id="3_huy8y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jadr7"]
 radius = 60.0083
@@ -19,6 +20,9 @@ texture = ExtResource("1_lwbnt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -12)
 shape = SubResource("CircleShape2D_jadr7")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_huy8y")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
